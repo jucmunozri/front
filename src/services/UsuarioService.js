@@ -14,8 +14,8 @@ const obtenerUsuarios = (estado = true) => {
 /**
  * Crea Usuario
  */
-const crearUsuario = (data) => {
-    return axiosConfig.post('usuarios', data, {
+const crearUsuario = (data, email) => {
+    return axiosConfig.post('usuarios', data, email, {
         headers: {
             'Content-type': 'application/json'
         }
@@ -25,7 +25,7 @@ const crearUsuario = (data) => {
 /**
  * Actualizar usuario por id
  */
-const editarUsuarioPorID = (usuarioId, data) => {
+const editarUsuarioPorID = (usuarioId, data, ) => {
     return axiosConfig.put('usuarios/'+usuarioId, data, {
         headers: {
             'Content-type': 'application/json'

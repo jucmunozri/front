@@ -1,8 +1,6 @@
 import { axiosConfig } from "../configuration/axiosConfig"
 
-/**
- * Obtiene todos los tipos de equipo
- */
+
 const obtenerEstados = (estado = true) => {
     return axiosConfig.get('estados?estado='+estado, {
         headers: {
@@ -11,9 +9,7 @@ const obtenerEstados = (estado = true) => {
     })
 }
 
-/**
- * Crea tipo de equipo
- */
+
 const crearEstado = (data) => {
     return axiosConfig.post('estados', data, {
         headers: {
@@ -22,9 +18,7 @@ const crearEstado = (data) => {
     })
 }
 
-/**
- * Actualiza un tipo de equipo por ID
- */
+
 const editarEstadoPorID = (estadoId, data) => {
     return axiosConfig.put('estados/'+estadoId, data, {
         headers: {
@@ -33,9 +27,7 @@ const editarEstadoPorID = (estadoId, data) => {
     })
 }
 
-/**
- * Borra un tipo de equipo por ID
- */
+
  const borrarEstadoPorID = (tipoId) => {
     return axiosConfig.delete('estados/'+tipoId, {}, {
         headers: {
@@ -44,9 +36,7 @@ const editarEstadoPorID = (estadoId, data) => {
     })
 }
 
-/**
- * Consulta un tipo de equipo por ID
- */
+
  const obtenerEstadoPorID = (tipoId) => {
     return axiosConfig.get('estados/'+tipoId, {
         headers: {

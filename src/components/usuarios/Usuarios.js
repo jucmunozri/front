@@ -1,8 +1,8 @@
 import dayjs from 'dayjs'
 import React, { useEffect, useState } from 'react'
 import { borrarUsuarioPorID, crearUsuario, editarUsuarioPorID, obtenerUsuarios } from '../../services/UsuarioService'
-import HeaderTable from '../ui/HeaderTable'
-import Modal from '../ui/Modal'
+import UsuariosTable from '../ui/UsuariosTable'
+import Modal from '../ui/Modalu'
 
 export default function Usuarios() {
   const [usuarios, setUsuarios] = useState([])
@@ -11,7 +11,10 @@ export default function Usuarios() {
   const [error, setError] = useState(false)
   const [usuario, setUsuario] = useState({
     nombre: '',
-    estado: true
+    estado: true,
+    email: '',
+    estado: true,
+    
   })
   const [errorSend, setErrorSend] = useState({
     status: false,
@@ -147,7 +150,18 @@ export default function Usuarios() {
                       value={usuario.nombre}
                       name="nombre"
                     />
-                    <select 
+                    <label for="recipient-name" className="col-form-label">Email:</label>
+                    <input 
+                      type="text" 
+                      className="form-control" 
+                      id="recipient-name"
+                      onChange={handleChange}
+                      value={usuario.email}
+                      name="email"
+                    />
+                    <label for="recipient-name" className="col-form-label">Estado:</label> 
+                    <select
+                      
                       class="form-select" 
                       aria-label="Default select example"
                       name="estado"
@@ -204,6 +218,8 @@ export default function Usuarios() {
             checked={query}
             onChange={cambiarSwitche}
           />
+         
+         
           <label className="form-check-label" hmtlFor="flexSwitchCheckChecked">( Inactivo / Activo )</label>
         </div>
         {
@@ -226,7 +242,7 @@ export default function Usuarios() {
           </div>)
         }
         <table className="table">
-        <HeaderTable />
+        <UsuariosTable />
         <tbody>
           {
             usuarios.map((usuario,index) => {
@@ -234,6 +250,7 @@ export default function Usuarios() {
               <tr key={usuario._id}>
                 <th scope="row">{index + 1}</th>
                 <td>{usuario.nombre}</td>
+                <td>{usuario.email}</td>
                 <td>{usuario.estado ? 'Activo': 'Inactivo'}</td>
                 <td>{dayjs(usuario.fechaCreacion).format('YYYY-MM-DD')}</td>
                 <td>{dayjs(usuario.fechaActualizacion).format('YYYY-MM-DD')}</td>

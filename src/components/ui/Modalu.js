@@ -36,7 +36,15 @@ export default function Modal({
                     value={element.nombre}
                     name="nombre"
                   />
-                  
+                  <label for="recipient-name" className="col-form-label">Email:</label>
+                  <input 
+                    type="text" 
+                    className="form-control" 
+                    id="recipient-name"
+                    onChange={handleChange}
+                    value={element.email}
+                    name="email"
+                  />
                 </div>
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 <button 

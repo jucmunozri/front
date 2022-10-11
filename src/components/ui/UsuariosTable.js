@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function HeaderTable() {
+export default function UsuariosTable() {
     /**
      * TODO: colocar los headers dinámicos con los key
      */
@@ -9,6 +9,7 @@ export default function HeaderTable() {
     <tr>
         <th scope="col">#</th>
         <th scope="col">Nombre</th>
+        <th scope="col">Email</th>
         <th scope="col">Estado</th>
         <th scope="col">Creado</th>
         <th scope="col">Actualizado</th>
